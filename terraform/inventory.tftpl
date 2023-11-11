@@ -1,0 +1,15 @@
+[db]
+%{ for i, host in db_vm_names ~}
+${db_vm_names[i]}       ansible_host=192.168.3.10${i}
+%{ endfor ~}
+
+[app]
+%{ for i, host in app_vm_names ~}
+${app_vm_names[i]}      ansible_host=192.168.3.11${i}
+%{ endfor ~}
+
+[lb]
+%{ for i, host in lb_vm_names ~}
+${lb_vm_names[i]}      ansible_host=192.168.3.12${i}
+%{ endfor ~}
+
