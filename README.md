@@ -9,23 +9,17 @@
 ## Настройка и запуск
 ### Настройка Proxmox
 Действия выполняются в консоли сервера Proxmox:
-
-Создать пользователя: ```pveum user add otus@pve```
-
-Добавить пользователю токен: ```pveum user token add otus@pve terraform```
-
-В выводе запомнить ```full-tokenid``` и ```value```.
-
-Создать роль: 
-
+- Создать пользователя: ```pveum user add otus@pve```
+- Добавить пользователю токен: ```pveum user token add otus@pve terraform```
+  - В выводе запомнить ```full-tokenid``` и ```value```.
+- Создать роль: 
 ```
 pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console \
                                    Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit \
                                    VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network \
                                    VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt"
 ```
-
-Назначить роль созданному пользователю: ```pveum aclmod / -user otus@pve -role TerraformProv```
+- Назначить роль созданному пользователю: ```pveum aclmod / -user otus@pve -role TerraformProv```
 
 ### Настройка подключения
 
